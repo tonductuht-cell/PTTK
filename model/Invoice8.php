@@ -9,7 +9,6 @@ class Invoice8 {
     public ?string $deliveryAddress;
     public ?string $status;
     public array $listDetail = [];
-    public array $history = [];
     public int $totalQty = 0;
     public float $totalValue = 0.0;
 
