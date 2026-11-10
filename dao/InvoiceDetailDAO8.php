@@ -75,14 +75,7 @@ class InvoiceDetailDAO8 extends DAO {
             $invoice->totalValue += (float)$itemRow['qty'] * (float)$itemRow['price'];
         }
 
-        $stmtHistory = $this->getConnection()->prepare("
-            SELECT status, DATE_FORMAT(status_date, '%d/%m/%Y %H:%i') AS status_date
-            FROM sale_invoice_history
-            WHERE invoice_id = ?
-            ORDER BY id ASC
-        ");
-        $stmtHistory->execute([$invoiceId]);
-        $invoice->history = $stmtHistory->fetchAll();
         return $invoice;
     }
 }
+
